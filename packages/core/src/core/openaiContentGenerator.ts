@@ -184,14 +184,14 @@ export class OpenAIContentGenerator implements ContentGenerator {
       }
       
       // Log the request being sent to OpenAI
-      console.log('🚀 OpenAI Request:', JSON.stringify(createParams, null, 2));
+      // console.log('🚀 OpenAI Request:', JSON.stringify(createParams, null, 2));
       
       const completion = (await this.client.chat.completions.create(
         createParams,
       )) as ChatCompletion;
       
       // Log the response received from OpenAI
-      console.log('📥 OpenAI Response:', JSON.stringify(completion, null, 2));
+      // console.log('📥 OpenAI Response:', JSON.stringify(completion, null, 2));
 
       const response = this.convertToGeminiFormat(completion);
       const durationMs = Date.now() - startTime;
@@ -316,7 +316,7 @@ export class OpenAIContentGenerator implements ContentGenerator {
       }
 
       // Log the streaming request being sent to OpenAI
-      console.log('🚀 OpenAI Streaming Request:', JSON.stringify(createParams, null, 2));
+      // console.log('🚀 OpenAI Streaming Request:', JSON.stringify(createParams, null, 2));
 
       const stream = (await this.client.chat.completions.create(
         createParams,
@@ -509,7 +509,7 @@ export class OpenAIContentGenerator implements ContentGenerator {
 
     for await (const chunk of stream) {
       // Log each streaming chunk from OpenAI
-      console.log('📦 OpenAI Streaming Chunk:', JSON.stringify(chunk, null, 2));
+      // console.log('📦 OpenAI Streaming Chunk:', JSON.stringify(chunk, null, 2));
       yield this.convertStreamChunkToGeminiFormat(chunk);
     }
   }
