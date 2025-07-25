@@ -9,7 +9,7 @@ import { Box, Text, useInput } from 'ink';
 import { Colors } from '../colors.js';
 
 interface OpenAIKeyPromptProps {
-  onSubmit: (apiKey: string, baseUrl: string, model: string) => void;
+  onSubmit: (apiKey: string, model: string) => void;
   onCancel: () => void;
 }
 
@@ -63,9 +63,9 @@ export function OpenAIKeyPrompt({
         setCurrentField('model');
         return;
       } else if (currentField === 'model') {
-        // 只有在提交时才检查 API key 是否为空
+        // Only ask for Together AI API Key and Model
         if (apiKey.trim()) {
-          onSubmit(apiKey.trim(), baseUrl.trim(), model.trim());
+          onSubmit(apiKey.trim(), model.trim());
         } else {
           // 如果 API key 为空，回到 API key 字段
           setCurrentField('apiKey');

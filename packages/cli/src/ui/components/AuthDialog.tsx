@@ -12,9 +12,8 @@ import { LoadedSettings, SettingScope } from '../../config/settings.js';
 import { AuthType } from '@qwen-code/qwen-code-core';
 import {
   validateAuthMethod,
-  setOpenAIApiKey,
-  setOpenAIBaseUrl,
-  setOpenAIModel,
+  setTogetherAiModel,
+  setTogetherApiKey
 } from '../../config/auth.js';
 import { OpenAIKeyPrompt } from './OpenAIKeyPrompt.js';
 
@@ -86,12 +85,10 @@ export function AuthDialog({
 
   const handleOpenAIKeySubmit = (
     apiKey: string,
-    baseUrl: string,
     model: string,
   ) => {
-    setOpenAIApiKey(apiKey);
-    setOpenAIBaseUrl(baseUrl);
-    setOpenAIModel(model);
+    setTogetherApiKey(apiKey);
+    setTogetherAiModel(model);
     setShowOpenAIKeyPrompt(false);
     onSelect(AuthType.USE_OPENAI, SettingScope.User);
   };

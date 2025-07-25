@@ -57,8 +57,7 @@ export interface CliArgs {
   listExtensions: boolean | undefined;
   ideMode: boolean | undefined;
   openaiLogging: boolean | undefined;
-  openaiApiKey: string | undefined;
-  openaiBaseUrl: string | undefined;
+  togetherApiKey: string | undefined;
 }
 
 export async function parseArguments(): Promise<CliArgs> {
@@ -189,13 +188,9 @@ export async function parseArguments(): Promise<CliArgs> {
       description:
         'Enable logging of OpenAI API calls for debugging and analysis',
     })
-    .option('openai-api-key', {
+    .option('together-api-key', {
       type: 'string',
-      description: 'OpenAI API key to use for authentication',
-    })
-    .option('openai-base-url', {
-      type: 'string',
-      description: 'OpenAI base URL (for custom endpoints)',
+      description: 'Together AI API key to use for authentication',
     })
 
     .version(await getCliVersion()) // This will enable the --version flag based on package.json
@@ -262,14 +257,9 @@ export async function loadCliConfig(
     argv.extensions || [],
   );
 
-  // Handle OpenAI API key from command line
-  if (argv.openaiApiKey) {
-    process.env.OPENAI_API_KEY = argv.openaiApiKey;
-  }
-
-  // Handle OpenAI base URL from command line
-  if (argv.openaiBaseUrl) {
-    process.env.OPENAI_BASE_URL = argv.openaiBaseUrl;
+  // Handle Together AI API key from command line
+  if (argv.togetherApiKey) {
+    process.env.TOGETHER_API_KEY = argv.togetherApiKey;
   }
 
   // Set the context filename in the server's memoryTool module BEFORE loading memory

@@ -39,8 +39,8 @@ export const validateAuthMethod = (authMethod: string): string | null => {
   }
 
   if (authMethod === AuthType.USE_OPENAI) {
-    if (!process.env.OPENAI_API_KEY) {
-      return 'OPENAI_API_KEY environment variable not found. You can enter it interactively or add it to your .env file.';
+    if (!process.env.TOGETHER_API_KEY) {
+      return 'TOGETHER_API_KEY environment variable not found. You can enter it interactively or add it to your .env file.';
     }
     return null;
   }
@@ -48,14 +48,10 @@ export const validateAuthMethod = (authMethod: string): string | null => {
   return 'Invalid auth method selected.';
 };
 
-export const setOpenAIApiKey = (apiKey: string): void => {
-  process.env.OPENAI_API_KEY = apiKey;
+export const setTogetherApiKey = (apiKey: string): void => {
+  process.env.TOGETHER_API_KEY = apiKey;
 };
 
-export const setOpenAIBaseUrl = (baseUrl: string): void => {
-  process.env.OPENAI_BASE_URL = baseUrl;
-};
-
-export const setOpenAIModel = (model: string): void => {
-  process.env.OPENAI_MODEL = model;
+export const setTogetherAiModel = (model: string): void => {
+  process.env.TOGETHER_MODEL = model;
 };

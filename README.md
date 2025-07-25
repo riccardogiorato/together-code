@@ -1,8 +1,8 @@
-# Qwen Code
+# Together Code
 
-![Qwen Code Screenshot](./docs/assets/qwen-screenshot.png)
+![Together Code Screenshot](./docs/assets/qwen-screenshot.png)
 
-Qwen Code is a command-line AI workflow tool adapted from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli) (Please refer to [this document](./README.gemini.md) for more details), optimized for [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder) models with enhanced parser support & tool support.
+**Together Code** is a command-line AI workflow tool forked from [**Qwen Code**](https://github.com/QwenLM/qwen-code), which itself was forked from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli) (Please refer to [this document](./README.gemini.md) for more details). This project continues the lineage of AI-powered development tools, building upon the foundations established by Gemini CLI and enhanced by Qwen Code.
 
 > [!WARNING]
 > Qwen Code may issue multiple API calls per cycle, resulting in higher token usage, similar to Claude Code. We’re actively working to enhance API efficiency and improve the overall developer experience.

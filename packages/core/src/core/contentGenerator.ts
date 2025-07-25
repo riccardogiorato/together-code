@@ -75,7 +75,7 @@ export async function createContentGeneratorConfig(
   const googleApiKey = process.env.GOOGLE_API_KEY || undefined;
   const googleCloudProject = process.env.GOOGLE_CLOUD_PROJECT || undefined;
   const googleCloudLocation = process.env.GOOGLE_CLOUD_LOCATION || undefined;
-  const openaiApiKey = process.env.OPENAI_API_KEY;
+  const togetherApiKey = process.env.TOGETHER_API_KEY;
 
   // Use runtime model from config if available, otherwise fallback to parameter or default
   const effectiveModel = model || DEFAULT_GEMINI_MODEL;
@@ -114,9 +114,9 @@ export async function createContentGeneratorConfig(
     return contentGeneratorConfig;
   }
 
-  if (authType === AuthType.USE_OPENAI && openaiApiKey) {
-    contentGeneratorConfig.apiKey = openaiApiKey;
-    contentGeneratorConfig.model = process.env.OPENAI_MODEL || '';
+  if (authType === AuthType.USE_OPENAI && togetherApiKey) {
+    contentGeneratorConfig.apiKey = togetherApiKey;
+    contentGeneratorConfig.model = process.env.TOGETHER_MODEL || "moonshotai/Kimi-K2-Instruct";
 
     return contentGeneratorConfig;
   }
