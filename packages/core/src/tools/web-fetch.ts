@@ -264,8 +264,8 @@ I have fetched the content from the following URL(s). Please use this content to
     const geminiClient = this.config.getGeminiClient();
     const contentGenerator = geminiClient.getContentGenerator();
 
-    // Check if using OpenAI content generator - if so, use fallback
-    if (contentGenerator.constructor.name === 'OpenAIContentGenerator') {
+    // Check if using Together AI content generator - if so, use fallback
+    if (contentGenerator.constructor.name === 'TogetherContentGenerator') {
       return this.executeFallback(params, signal);
     }
 

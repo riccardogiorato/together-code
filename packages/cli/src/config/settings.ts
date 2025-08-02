@@ -69,7 +69,7 @@ export interface Settings {
   bugCommand?: BugCommandSettings;
   checkpointing?: CheckpointingSettings;
   autoConfigureMaxOldSpaceSize?: boolean;
-  enableOpenAILogging?: boolean;
+  enableOpenAILogging?: boolean; // Note: Now used for Together AI logging
 
   // Git-aware file filtering settings
   fileFiltering?: {

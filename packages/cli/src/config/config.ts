@@ -186,7 +186,7 @@ export async function parseArguments(): Promise<CliArgs> {
     .option('openai-logging', {
       type: 'boolean',
       description:
-        'Enable logging of OpenAI API calls for debugging and analysis',
+        'Enable logging of Together AI API calls for debugging and analysis',
     })
     .option('together-api-key', {
       type: 'string',

@@ -162,16 +162,16 @@ export async function createContentGenerator(
 
   if (config.authType === AuthType.USE_OPENAI) {
     if (!config.apiKey) {
-      throw new Error('OpenAI API key is required');
+      throw new Error('Together AI API key is required');
     }
 
-    // Import OpenAIContentGenerator dynamically to avoid circular dependencies
-    const { OpenAIContentGenerator } = await import(
-      './openaiContentGenerator.js'
+    // Import TogetherContentGenerator dynamically to avoid circular dependencies
+    const { TogetherContentGenerator } = await import(
+      './togetherContentGenerator.js'
     );
 
-    // Always use OpenAIContentGenerator, logging is controlled by enableOpenAILogging flag
-    return new OpenAIContentGenerator(config.apiKey, config.model, gcConfig);
+    // Use TogetherContentGenerator for Together AI API
+    return new TogetherContentGenerator(config.apiKey, config.model, gcConfig);
   }
 
   throw new Error(
